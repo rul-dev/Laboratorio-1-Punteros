@@ -32,9 +32,9 @@ void retirarDinero(double *saldo)
     }
 }
 
-void depositar(double *depositor, double monto) {
+void depositar(double *depositar, double monto) {
     if (monto > 0) {
-        *depositor += monto;
+        *depositar += monto;
         cout << "Depositar: " << monto << endl;
     } else {
         cout << "Deposito invalido." << endl;
@@ -69,13 +69,14 @@ int main()
             break;
         case 3:
             cout << "Depositar dinero" << endl;
+            depositar(&saldo, 100.0); // 
             break;
         case 4:
             cout << "Saliendo del programa..." << endl;
             break;
         default:
             cout << "Opcion invalida. Por favor, ingrese una opcion valida." << endl;
-        }
+        } 
     } while (opcion != 4);
-    return 0;
-}
+    return 0;  
+}1
