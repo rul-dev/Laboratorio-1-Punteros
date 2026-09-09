@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
 
-void mostrarSaldo(double saldo){
-    cout << "Saldo actual: "<< saldo<< endl;
+void mostrarSaldo(double saldo)
+{
+    cout << "Saldo actual: " << saldo << endl;
 }
 
 void retirarDinero(double *saldo)
@@ -32,11 +33,15 @@ void retirarDinero(double *saldo)
     }
 }
 
-void depositar(double *depositor, double monto) {
-    if (monto > 0) {
+void depositar(double *depositor, double monto)
+{
+    if (monto > 0)
+    {
         *depositor += monto;
         cout << "Depositar: " << monto << endl;
-    } else {
+    }
+    else
+    {
         cout << "Deposito invalido." << endl;
     }
 }
