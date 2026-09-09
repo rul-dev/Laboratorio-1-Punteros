@@ -1,30 +1,39 @@
 #include <iostream>
 using namespace std;
 
-void retirarDinero(double &saldo)
+void retirarDinero(double *saldo)
 {
-    double cantidad;
+    int cantidad;
 
     do
     {
-        cout << "Ingrese la cantidad a retirar: ";
+        cout << "Ingrese la cantidad a retirar, solo multiplos de 5: ";
         cin >> cantidad;
 
-        if (cantidad <= 0)
+        if (cantidad <= 0 || cantidad % 5 != 0)
         {
-            cout << "Cantidad invalida. Por favor, ingrese una cantidad positiva." << endl;
+            cout << "Cantidad invalida. Por favor, ingrese una cantidad positiva y multiple de 5." << endl;
         }
 
-    } while (cantidad <= 0);
+    } while (cantidad <= 0 || cantidad % 5 != 0);
 
-    if (cantidad > saldo)
+    if (cantidad > *saldo)
     {
         cout << "Saldo insuficiente. No se puede realizar el retiro." << endl;
     }
     else
     {
-        saldo -= cantidad;
-        cout << "Retiro exitoso. Nuevo saldo: " << saldo << endl;
+        *saldo -= cantidad;
+        cout << "Retiro exitoso. Nuevo saldo: " << *saldo << endl;
+    }
+}
+
+void depositar(double *depositor, double monto) {
+    if (monto > 0) {
+        *depositor += monto;
+        cout << "Depositar: " << monto << endl;
+    } else {
+        cout << "Deposito invalido." << endl;
     }
 }
 
@@ -51,7 +60,7 @@ int main()
             cout << "Consultar saldo" << endl;
             break;
         case 2:
-            retirarDinero(saldo);
+            retirarDinero(&saldo);
             break;
         case 3:
             cout << "Depositar dinero" << endl;
