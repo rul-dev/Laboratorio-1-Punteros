@@ -1,6 +1,15 @@
 #include <iostream>
 using namespace std;
 
+void depositar(double *depositor, double monto) {
+    if (monto > 0) {
+        *depositor += monto;
+        cout << "Depositar: " << monto << endl;
+    } else {
+        cout << "Deposito invalido." << endl;
+    }
+}
+
 int main()
 {
     int opcion;
