@@ -5,11 +5,46 @@ void mostrarSaldo(double saldo){
     cout << "Saldo actual: "<< saldo<< endl;
 }
 
+void retirarDinero(double *saldo)
+{
+    int cantidad;
+
+    do
+    {
+        cout << "Ingrese la cantidad a retirar, solo multiplos de 5: ";
+        cin >> cantidad;
+
+        if (cantidad <= 0 || cantidad % 5 != 0)
+        {
+            cout << "Cantidad invalida. Por favor, ingrese una cantidad positiva y multiple de 5." << endl;
+        }
+
+    } while (cantidad <= 0 || cantidad % 5 != 0);
+
+    if (cantidad > *saldo)
+    {
+        cout << "Saldo insuficiente. No se puede realizar el retiro." << endl;
+    }
+    else
+    {
+        *saldo -= cantidad;
+        cout << "Retiro exitoso. Nuevo saldo: " << *saldo << endl;
+    }
+}
+
+void depositar(double *depositor, double monto) {
+    if (monto > 0) {
+        *depositor += monto;
+        cout << "Depositar: " << monto << endl;
+    } else {
+        cout << "Deposito invalido." << endl;
+    }
+}
+
 int main()
 {
     int opcion;
-    double saldo = 100;
-    ;
+    double saldo = 1000.0; // Saldo inicial del cajero
     do
     {
         cout << "------------------ Menu de cajero ------------------------" << endl;
@@ -30,7 +65,7 @@ int main()
             mostrarSaldo(saldo);
             break;
         case 2:
-            cout << "Retirar dinero" << endl;
+            retirarDinero(&saldo);
             break;
         case 3:
             cout << "Depositar dinero" << endl;
