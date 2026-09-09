@@ -8,7 +8,7 @@ void mostrarSaldo(double saldo){
 int main()
 {
     int opcion;
-    double saldo = 1000
+    double saldo = 100;
     ;
     do
     {
